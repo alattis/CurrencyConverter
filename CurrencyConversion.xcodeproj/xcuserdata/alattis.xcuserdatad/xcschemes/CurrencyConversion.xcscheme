@@ -38,6 +38,16 @@
                ReferencedContainer = "container:CurrencyConversion.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4DC4AC951E6CC882007D0364"
+               BuildableName = "CurrencyConversionUITests.xctest"
+               BlueprintName = "CurrencyConversionUITests"
+               ReferencedContainer = "container:CurrencyConversion.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

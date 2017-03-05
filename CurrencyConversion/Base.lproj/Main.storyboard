@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CCViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,107 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cIR-de-eFp">
+                                <rect key="frame" x="158" y="36" width="191" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="fromTextField"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="TX2-LR-Bta"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRR-9e-fgZ">
+                                <rect key="frame" x="26" y="40" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3w-Gu-b8t">
+                                <rect key="frame" x="26" y="101" width="19" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-P4-4gH">
+                                <rect key="frame" x="72" y="29" width="66" height="44"/>
+                                <accessibility key="accessibilityConfiguration" identifier="fromButton"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="13" maxX="20" maxY="13"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="fromButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="akv-jK-tzG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmY-qp-PxQ">
+                                <rect key="frame" x="51" y="90" width="66" height="44"/>
+                                <accessibility key="accessibilityConfiguration" identifier="toButton"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="13" maxX="20" maxY="13"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="toButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aji-Lj-5Du"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnU-bj-DKr">
+                                <rect key="frame" x="0.0" y="135" width="375" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ScF-qu-4rC"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ier-pE-Rbl"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4cR-NH-a7U">
+                                <rect key="frame" x="158" y="97" width="191" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="toTextField"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SNP-2v-glD"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="backgroundView"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="4cR-NH-a7U" firstAttribute="leading" secondItem="cIR-de-eFp" secondAttribute="leading" id="4uI-hC-ubC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4cR-NH-a7U" secondAttribute="trailing" constant="10" id="89p-gX-2Oc"/>
+                            <constraint firstItem="4cR-NH-a7U" firstAttribute="centerY" secondItem="ZmY-qp-PxQ" secondAttribute="centerY" id="8Od-fa-TNN"/>
+                            <constraint firstItem="g3w-Gu-b8t" firstAttribute="top" secondItem="bRR-9e-fgZ" secondAttribute="bottom" constant="40" id="Bff-bB-hye"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cIR-de-eFp" secondAttribute="trailing" constant="10" id="EoC-MP-u5m"/>
+                            <constraint firstItem="g3w-Gu-b8t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="L1X-vd-A5u"/>
+                            <constraint firstItem="bRR-9e-fgZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="MFn-5o-1GW"/>
+                            <constraint firstItem="ZmY-qp-PxQ" firstAttribute="leading" secondItem="g3w-Gu-b8t" secondAttribute="trailing" constant="6" id="OOi-9H-yxU"/>
+                            <constraint firstItem="cIR-de-eFp" firstAttribute="centerY" secondItem="qBa-P4-4gH" secondAttribute="centerY" id="P0Y-aa-dQx"/>
+                            <constraint firstItem="ZmY-qp-PxQ" firstAttribute="centerY" secondItem="g3w-Gu-b8t" secondAttribute="centerY" id="WVu-m3-xBg"/>
+                            <constraint firstItem="cIR-de-eFp" firstAttribute="leading" secondItem="qBa-P4-4gH" secondAttribute="trailing" constant="20" id="Y9k-LA-CmW"/>
+                            <constraint firstItem="qBa-P4-4gH" firstAttribute="centerY" secondItem="bRR-9e-fgZ" secondAttribute="centerY" id="b7m-e7-1l6"/>
+                            <constraint firstItem="WnU-bj-DKr" firstAttribute="top" secondItem="4cR-NH-a7U" secondAttribute="bottom" constant="8" id="dc9-jU-d20"/>
+                            <constraint firstItem="bRR-9e-fgZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="40" id="pMj-Nh-Rjd"/>
+                            <constraint firstItem="qBa-P4-4gH" firstAttribute="leading" secondItem="bRR-9e-fgZ" secondAttribute="trailing" constant="6" id="rSP-xy-wJp"/>
+                            <constraint firstAttribute="trailing" secondItem="WnU-bj-DKr" secondAttribute="trailing" id="vvK-3J-LXW"/>
+                            <constraint firstItem="WnU-bj-DKr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yTQ-lj-6df"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BIJ-Xy-qGX" appends="YES" id="wne-JF-VTe"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="fromButton" destination="qBa-P4-4gH" id="t4l-I8-dQ3"/>
+                        <outlet property="fromTextField" destination="cIR-de-eFp" id="C4U-z4-uho"/>
+                        <outlet property="pickerView" destination="WnU-bj-DKr" id="JPc-eh-fgl"/>
+                        <outlet property="toButton" destination="ZmY-qp-PxQ" id="MEd-Us-2aC"/>
+                        <outlet property="toTextField" destination="4cR-NH-a7U" id="uUN-O9-rPh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="BIJ-Xy-qGX">
+                    <connections>
+                        <action selector="tapGestureDetected:" destination="BYZ-38-t0r" id="Axh-aq-dV0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="140" y="98.50074962518741"/>
         </scene>
     </scenes>
 </document>
